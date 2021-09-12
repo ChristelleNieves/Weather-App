@@ -12,10 +12,14 @@ class MainViewController: UIViewController {
     let viewModel = WeatherViewModel()
     let tableView = UITableView()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.applyGradient()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
-        view.applyGradient()
         getData()
     }
 }

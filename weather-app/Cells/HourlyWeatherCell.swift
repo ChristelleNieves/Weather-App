@@ -70,7 +70,7 @@ extension HourlyWeatherCell: UICollectionViewDelegate, UICollectionViewDataSourc
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HourlyCell", for: indexPath) as! HourlyCollectionViewCell
         
         cell.contentView.layer.cornerRadius = 20
-        cell.contentView.backgroundColor = UIColor.white.withAlphaComponent(0.10)
+        cell.contentView.backgroundColor = UIColor.init(red: 251/255.0, green: 195/255.0, blue: 192/255.0, alpha: 0.50)
         
         guard let data = weatherData else { return cell }
         

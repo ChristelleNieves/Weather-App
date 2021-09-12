@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC4D24D226E94C2400B86965 /* API+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4D24D126E94C2400B86965 /* API+Request.swift */; };
-		BC4D24D426E94C4F00B86965 /* API+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4D24D326E94C4F00B86965 /* API+Endpoints.swift */; };
+		BC570F2726ED96ED004FF2AC /* API+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC570F2626ED96ED004FF2AC /* API+Endpoints.swift */; };
 		BCD23DC026D73ACB00937A80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD23DBF26D73ACB00937A80 /* AppDelegate.swift */; };
 		BCD23DC226D73ACB00937A80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD23DC126D73ACB00937A80 /* SceneDelegate.swift */; };
 		BCD23DC426D73ACB00937A80 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD23DC326D73ACB00937A80 /* MainViewController.swift */; };
@@ -30,7 +30,7 @@
 
 /* Begin PBXFileReference section */
 		BC4D24D126E94C2400B86965 /* API+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Request.swift"; sourceTree = "<group>"; };
-		BC4D24D326E94C4F00B86965 /* API+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Endpoints.swift"; sourceTree = "<group>"; };
+		BC570F2626ED96ED004FF2AC /* API+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Endpoints.swift"; sourceTree = "<group>"; };
 		BCD23DBC26D73ACB00937A80 /* weather-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "weather-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD23DBF26D73ACB00937A80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCD23DC126D73ACB00937A80 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,9 +108,9 @@
 			children = (
 				BCD23DD826D73E9400937A80 /* API+Response.swift */,
 				BC4D24D126E94C2400B86965 /* API+Request.swift */,
-				BC4D24D326E94C4F00B86965 /* API+Endpoints.swift */,
 				BCF1047F26EAF5040061AAE8 /* LocationManager.swift */,
 				BCF1048126EAFC0F0061AAE8 /* WeatherViewModel.swift */,
+				BC570F2626ED96ED004FF2AC /* API+Endpoints.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -231,9 +231,9 @@
 				BCD23DD926D73E9400937A80 /* API+Response.swift in Sources */,
 				BCF1048B26EB21280061AAE8 /* WeatherReloadManager.swift in Sources */,
 				BCF1048826EB16CE0061AAE8 /* UIView+Ext.swift in Sources */,
+				BC570F2726ED96ED004FF2AC /* API+Endpoints.swift in Sources */,
 				BCD23DC026D73ACB00937A80 /* AppDelegate.swift in Sources */,
 				BCF1048026EAF5040061AAE8 /* LocationManager.swift in Sources */,
-				BC4D24D426E94C4F00B86965 /* API+Endpoints.swift in Sources */,
 				BCE516DC26EC7A2D00099320 /* DailyDetailsCell.swift in Sources */,
 				BCF1048226EAFC0F0061AAE8 /* WeatherViewModel.swift in Sources */,
 				BCD23DC226D73ACB00937A80 /* SceneDelegate.swift in Sources */,
