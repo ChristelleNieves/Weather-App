@@ -16,16 +16,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         viewModel.delegate = self
         view.applyGradient()
-        setupTableView()
-        viewModel.getCurrentWeatherData {
-            self.viewModel.fetchCityName()
-            self.tableView.reloadData()
-            
-            // Cache the images for the hourly weather so we don't have to keep loading them
-            self.viewModel.populateWeatherImages {
-                self.tableView.reloadData()
-            }
-        }
+        getData()
     }
 }
 
@@ -43,6 +34,7 @@ extension MainViewController {
         tableView.backgroundColor = UIColor.clear
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
         
         // Constraints
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -53,6 +45,22 @@ extension MainViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    // Get all the data to display
+    private func getData() {
+        viewModel.getCurrentWeatherData {
+            self.viewModel.fetchCityName()
+            
+            // Cache the images for the hourly weather so we don't have to keep loading them
+            self.viewModel.populateHourlyWeatherImages {
+                //self.tableView.reloadData()
+            }
+            
+            self.viewModel.populateDailyWeatherImages {
+                self.setupTableView()
+            }
+        }
     }
 }
 
@@ -77,7 +85,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HourlyWeatherCell", for: indexPath) as! HourlyWeatherCell
             
-            cell.setupCellWithWeatherData(data: viewModel.hourlyWeatherData, images: viewModel.weatherImages)
+            cell.setupCellWithWeatherData(data: viewModel.hourlyWeatherData, images: viewModel.hourlyWeatherImages)
             
             return cell
         }
@@ -85,6 +93,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DailyWeatherCell", for: indexPath) as! DailyWeatherCell
             
             cell.dailyWeather = viewModel.dailyWeatherData
+            cell.dailyWeatherImages = viewModel.dailyWeatherImages
             cell.tableView.reloadData()
             cell.backgroundColor = UIColor.clear
             
@@ -94,7 +103,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return view.frame.height * 0.35
+            return view.frame.height * 0.40
         }
         else if indexPath.row == 1 {
             return view.frame.height * 0.20

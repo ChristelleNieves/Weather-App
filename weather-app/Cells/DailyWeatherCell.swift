@@ -10,6 +10,7 @@ import UIKit
 class DailyWeatherCell: UITableViewCell {
     
     var dailyWeather: [DailyData]?
+    var dailyWeatherImages: [UIImage]?
     let tableView = UITableView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -30,7 +31,7 @@ class DailyWeatherCell: UITableViewCell {
         tableView.register(DailyDetailsCell.self, forCellReuseIdentifier: "DailyDetailsCell")
         tableView.rowHeight = 50
         tableView.backgroundColor = UIColor.clear
-        tableView.separatorColor = UIColor.white.withAlphaComponent(0.70)
+        tableView.separatorColor = UIColor.white.withAlphaComponent(0.50)
         tableView.allowsSelection = false
         tableView.isScrollEnabled = false
         
@@ -60,12 +61,11 @@ extension DailyWeatherCell: UITableViewDelegate, UITableViewDataSource {
         
         let date = Date(timeIntervalSince1970: data[indexPath.row].dt)
         let weekDay = Calendar.current.component(.weekday, from: date)
-        let f = DateFormatter()
-
-        let day = f.weekdaySymbols[weekDay - 1]
-        print("\(day)")
+        let dateFormatter = DateFormatter()
+        let day = dateFormatter.weekdaySymbols[weekDay - 1]
+        let image = dailyWeatherImages?[indexPath.row] ?? UIImage()
         
-        cell.setupCellWithData(data: data[indexPath.row], day: day)
+        cell.setupCellWithData(data: data[indexPath.row], day: day, image: image)
         
         cell.backgroundColor = UIColor.clear
         return cell

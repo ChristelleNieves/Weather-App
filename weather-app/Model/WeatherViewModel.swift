@@ -16,7 +16,8 @@ public class WeatherViewModel {
     var currentWeatherData: CurrentData?
     var hourlyWeatherData = [CurrentData]()
     var dailyWeatherData = [DailyData]()
-    var weatherImages = [UIImage]()
+    var hourlyWeatherImages = [UIImage]()
+    var dailyWeatherImages = [UIImage]()
     
     func getCurrentWeatherData(completionHandler: @escaping () -> Void) {
         API().fetchData(completionHandler: { data in
@@ -55,10 +56,21 @@ public class WeatherViewModel {
         })
     }
     
-    func populateWeatherImages(completionHandler: @escaping () -> Void) {
+    func populateHourlyWeatherImages(completionHandler: @escaping () -> Void) {
         for data in hourlyWeatherData {
             let image = API().getImage(imageCode: data.weather[0].icon)
-            weatherImages.append(image)
+            hourlyWeatherImages.append(image)
+            
+            DispatchQueue.main.async {
+                completionHandler()
+            }
+        }
+    }
+    
+    func populateDailyWeatherImages(completionHandler: @escaping () -> Void) {
+        for data in dailyWeatherData {
+            let image = API().getImage(imageCode: data.weather[0].icon)
+            dailyWeatherImages.append(image)
             
             DispatchQueue.main.async {
                 completionHandler()

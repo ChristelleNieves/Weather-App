@@ -22,7 +22,6 @@ public class LocationManager {
         
         
         if manager.authorizationStatus == .authorizedWhenInUse || manager.authorizationStatus == .authorizedAlways {
-            print("setting location")
             currentLocation = manager.location
         }
         

@@ -35,7 +35,7 @@ extension HourlyCollectionViewCell {
         
         // Appearance
         topLabel.font = UIFont.systemFont(ofSize: 15, weight: .light)
-        topLabel.textColor = UIColor.white.withAlphaComponent(0.80)
+        topLabel.textColor = UIColor.white
         
         // Constraints
         topLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -67,7 +67,7 @@ extension HourlyCollectionViewCell {
         
         // Appearance
         bottomLabel.font = UIFont.systemFont(ofSize: 15, weight: .light)
-        bottomLabel.textColor = UIColor.white.withAlphaComponent(0.80)
+        bottomLabel.textColor = UIColor.white
         
         // Constraints
         bottomLabel.translatesAutoresizingMaskIntoConstraints = false
